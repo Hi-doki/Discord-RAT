@@ -17,6 +17,8 @@ If you use this program for malicious purposes, shame on you.
 
 <h3 align=center>Build</h3>
 
++ Download The `master` Branch Of This Repository
+
 + Open The Solution File `Hi-Doki RAT.sln`
 
 + Right Click `Hi-Doki RAT` CS Project File In The `Solution Explorer`
