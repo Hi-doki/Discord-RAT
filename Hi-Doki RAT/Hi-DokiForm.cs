@@ -32,7 +32,7 @@ namespace uwu_poggy_woggy_boy
             client = new DiscordSocketClient();
             client.MessageReceived += Commands;
 
-            string token = "OTQyMTYyOTkxOTU5NDA0NTc0.Gg7fsG.IDZVfFOvtSxUowQHz-LSwB-pE6YT0qUHowPBnk";
+            string token = "Token";
 
             await client.LoginAsync(TokenType.Bot, token);
             await client.StartAsync();
