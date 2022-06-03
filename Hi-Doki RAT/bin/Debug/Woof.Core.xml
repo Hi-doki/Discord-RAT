@@ -1,0 +1,1615 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Woof.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Woof.Algorithms.ArrayFisherYates">
+            <summary>
+            Provides swapping and shuffling elements using Fisher-Yates algorithm.
+            </summary>
+        </member>
+        <member name="F:Woof.Algorithms.ArrayFisherYates.PRNG">
+            <summary>
+            Pseudo-random number generator.
+            </summary>
+        </member>
+        <member name="M:Woof.Algorithms.ArrayFisherYates.Swap``1(``0[],System.Int32,System.Int32)">
+            <summary>
+            Swaps array elements.
+            </summary>
+            <typeparam name="T">Element type.</typeparam>
+            <param name="x">Array to operate on.</param>
+            <param name="a">First value.</param>
+            <param name="b">Second value.</param>
+        </member>
+        <member name="M:Woof.Algorithms.ArrayFisherYates.Shuffle``1(``0[],System.Int32)">
+            <summary>
+            Shuffles the array using Fisher-Yates algorithm.
+            </summary>
+            <typeparam name="T">Element type.</typeparam>
+            <param name="x">Array to operate on.</param>
+            <param name="s">Starting index. Default <c>0</c>.</param>
+        </member>
+        <member name="M:Woof.Algorithms.ArrayFisherYates.Shuffled``1(``0[],System.Int32)">
+            <summary>
+            <para>Returns array shuffled using Fisher-Yates algorithm.</para>
+            <para>Original data is changed!</para>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="x">Array to operate on.</param>
+            <param name="s">Starting index. Default <c>0</c>.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Woof.Algorithms.BoxMuller">
+            <summary>
+            Box-Muller transform implementation on <see cref="T:System.Random"/> and <see cref="T:Woof.Algorithms.IPseudoRandomNumberGenerator"/>.
+            </summary>
+        </member>
+        <member name="F:Woof.Algorithms.BoxMuller.nStdDev">
+            <summary>
+            Standard deviation for (0..1) range.
+            </summary>
+        </member>
+        <member name="F:Woof.Algorithms.BoxMuller.nMean">
+            <summary>
+            Mean for (0..1) range.
+            </summary>
+        </member>
+        <member name="M:Woof.Algorithms.BoxMuller.NextNormal(Woof.Algorithms.IPseudoRandomNumberGenerator,System.Double,System.Double)">
+            <summary>
+            Generates a random value from a standard Normal distribution.<br/>
+            With 0 as mean and standard deviation as 1 it returns values from (-2π..2π).<br/>
+            With default 0.5 as mean and standard deviation as 1/4π it returns values from (0..1).
+            </summary>
+            <param name="prng">Pseudo random number generator.</param>
+            <param name="stdDev">Standard deviation (default 1/4π).</param>
+            <param name="mean">Mean (default 0.5).</param>
+            <returns>2π * (-1..1) * stdDev + mean.</returns>
+        </member>
+        <member name="M:Woof.Algorithms.BoxMuller.NextNormal(System.Random,System.Double,System.Double)">
+            <summary>
+            Generates a random value from a standard Normal distribution.<br/>
+            With 0 as mean and standard deviation as 1 it returns values from (-2π..2π).<br/>
+            With default 0.5 as mean and standard deviation as 1/4π it returns values from (0..1).
+            </summary>
+            <param name="prng">Pseudo random number generator.</param>
+            <param name="stdDev">Standard deviation (default 1/4π).</param>
+            <param name="mean">Mean (default 0.5).</param>
+            <returns>2π * (-1..1) * stdDev + mean.</returns>
+        </member>
+        <member name="M:Woof.Algorithms.BoxMuller.NextNormal(Woof.Algorithms.IPseudoRandomNumberGenerator,System.Int32)">
+            <summary>
+            Generates a random value from a Normal distribution covering the range from [0..max).
+            </summary>
+            <param name="prng">Pseudo random number generator.</param>
+            <param name="max">Exclusive upper limit.</param>
+            <returns>Integer from [0..max).</returns>
+        </member>
+        <member name="M:Woof.Algorithms.BoxMuller.NextNormal(System.Random,System.Int32)">
+            <summary>
+            Generates a random value from a Normal distribution covering the range from [0..max).
+            </summary>
+            <param name="prng">Pseudo random number generator.</param>
+            <param name="max">Exclusive upper limit.</param>
+            <returns>Integer from [0..max).</returns>
+        </member>
+        <member name="M:Woof.Algorithms.BoxMuller.NextNormal(Woof.Algorithms.IPseudoRandomNumberGenerator,System.Int32,System.Int32)">
+            <summary>
+            Generates a random value from a Normal distribution covering the range from [min..max).
+            </summary>
+            <param name="prng">Pseudo random number generator.</param>
+            <param name="min">Inclusive lower limit.</param>
+            <param name="max">Exclusive upper limit.</param>
+            <returns>Integer from [min..max).</returns>
+        </member>
+        <member name="M:Woof.Algorithms.BoxMuller.NextNormal(System.Random,System.Int32,System.Int32)">
+            <summary>
+            Generates a random value from a Normal distribution covering the range from [min..max).
+            </summary>
+            <param name="prng">Pseudo random number generator.</param>
+            <param name="min">Inclusive lower limit.</param>
+            <param name="max">Exclusive upper limit.</param>
+            <returns>Integer from [min..max).</returns>
+        </member>
+        <member name="M:Woof.Algorithms.BoxMuller.NextNormal(System.Func{System.Double},System.Double,System.Double)">
+            <summary>
+            Generates a random value from a standard Normal distribution.<br/>
+            With 0 as mean and standard deviation as 1 it returns values from (-2π..2π).<br/>
+            </summary>
+            <param name="prng">Fuction returning random <see cref="T:System.Double"/> numbers from [0..1) with uniform distribution.</param>
+            <param name="stdDev">Standard deviation.</param>
+            <param name="mean">Mean.</param>
+            <returns>2π * (-1..1) * stdDev + mean.</returns>
+        </member>
+        <member name="M:Woof.Algorithms.BoxMuller.NFSI(System.Double,System.Int32,System.Double,System.Double)">
+            <summary>
+            Normal For Small Integers Calculation.
+            </summary>
+            <param name="normal">Normal random from [0..1).</param>
+            <param name="limit">Exclusive limit.</param>
+            <param name="sdc">Standard deviation coefficient. Default 2.0.</param>
+            <param name="mc">Mean coefficient. Default -0.5.</param>
+            <returns>Integer from [0..limit).</returns>
+        </member>
+        <member name="M:Woof.Algorithms.BoxMuller.NFSI(System.Double,System.Int32,System.Int32,System.Double,System.Double)">
+            <summary>
+            Normal For Small Integers Calculation.
+            </summary>
+            <param name="normal">Normal random from [0..1).</param>
+            <param name="min">Minimal value (inclusive).</param>
+            <param name="max">Maximal value (exclusive).</param>
+            <param name="sdc">Standard deviation coefficient. Default 2.0.</param>
+            <param name="mc">Mean coefficient. Default -0.5.</param>
+            <returns>Integer from [min..max).</returns>
+        </member>
+        <member name="T:Woof.Algorithms.HashCode">
+            <summary>
+            Hash code calculation tool for custom comparers and such.
+            </summary>
+            <remarks>
+            Since .NET Standard 2.1 there is framework struct with conflicting name:
+            See <see href="https://docs.microsoft.com/en-us/dotnet/api/system.hashcode?view=netstandard-2.1">.NET Standard 2.1 documentation.</see>
+            </remarks>
+        </member>
+        <member name="M:Woof.Algorithms.HashCode.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes <see cref="T:Woof.Algorithms.HashCode"/> calculator with primes.
+            </summary>
+            <param name="collectionPrime">A prime number used to calculate codes for collections.</param>
+            <param name="componentPrime">A prime number used to calculate codes for components.</param>
+        </member>
+        <member name="M:Woof.Algorithms.HashCode.GetFromCollection(System.Collections.IEnumerable)">
+            <summary>
+            Calculates the hash code value for any collection of primitive objects.
+            </summary>
+            <param name="collection">Any collection of primitive objects.</param>
+            <returns>Hash code value.</returns>
+        </member>
+        <member name="M:Woof.Algorithms.HashCode.GetFromComponents(System.Object[])">
+            <summary>
+            Calculates the hash code value for any primitives or collections of primitives components.
+            </summary>
+            <param name="components">Primitives or collections of primitives.</param>
+            <returns>Hash code value.</returns>
+        </member>
+        <member name="F:Woof.Algorithms.HashCode.CollectionPrime">
+            <summary>
+            A prime number used to calculate hash codes for collections.
+            </summary>
+        </member>
+        <member name="F:Woof.Algorithms.HashCode.ComponentPrime">
+            <summary>
+            A prime number used to calculate hash codes for components.
+            </summary>
+        </member>
+        <member name="T:Woof.Algorithms.IPseudoRandomNumberGenerator">
+            <summary>
+            Provides pseudo-random number generator methods.
+            </summary>
+        </member>
+        <member name="M:Woof.Algorithms.IPseudoRandomNumberGenerator.Next">
+            <summary>
+            Returns a non-negative random integer.
+            </summary>
+            <returns>A 32-bit signed integer that is greater than or equal to 0 and less than System.Int32.MaxValue.</returns>
+        </member>
+        <member name="M:Woof.Algorithms.IPseudoRandomNumberGenerator.Next(System.Int32)">
+            <summary>
+            Returns a non-negative random integer that is less than the specified maximum.
+            </summary>
+            <param name="max">The exclusive upper bound of the random number to be generated. maxValue must be greater than or equal to 0.</param>
+            <returns>A 32-bit signed integer greater than or equal to minValue and less than maxValue; that is, the range of return values includes minValue but not maxValue. If minValue equals maxValue, minValue is returned.</returns>
+        </member>
+        <member name="M:Woof.Algorithms.IPseudoRandomNumberGenerator.Next(System.Int32,System.Int32)">
+            <summary>
+            Returns a random integer that is within a specified range.
+            </summary>
+            <param name="min">The inclusive lower bound of the random number returned.</param>
+            <param name="max">The exclusive upper bound of the random number returned. maxValue must be greater than or equal to minValue.</param>
+            <returns>A 32-bit signed integer greater than or equal to minValue and less than maxValue; that is, the range of return values includes minValue but not maxValue. If minValue equals maxValue, minValue is returned.</returns>
+        </member>
+        <member name="M:Woof.Algorithms.IPseudoRandomNumberGenerator.NextBool">
+            <summary>
+            Returns a random boolean value.
+            </summary>
+            <returns>A random boolean value.</returns>
+        </member>
+        <member name="M:Woof.Algorithms.IPseudoRandomNumberGenerator.NextByte">
+            <summary>
+            Returns next random byte.
+            </summary>
+            <returns>Random byte.</returns>
+        </member>
+        <member name="M:Woof.Algorithms.IPseudoRandomNumberGenerator.NextBytes(System.Byte[])">
+            <summary>
+            Fills the elements of a specified array of bytes with random numbers.
+            </summary>
+            <param name="buffer">An array of bytes to contain random numbers.</param>
+        </member>
+        <member name="M:Woof.Algorithms.IPseudoRandomNumberGenerator.NextDouble">
+            <summary>
+            Returns a random floating-point number that is greater than or equal to 0.0 and less than 1.0.
+            </summary>
+            <returns>A double-precision floating point number that is greater than or equal to 0.0 and less than 1.0.</returns>
+        </member>
+        <member name="T:Woof.Algorithms.SysRandom">
+            <summary>
+            System Random generator wrapped in <see cref="T:Woof.Algorithms.IPseudoRandomNumberGenerator"/> interface.
+            </summary>
+        </member>
+        <member name="M:Woof.Algorithms.SysRandom.NextBool">
+            <summary>
+            Returns a random boolean value.
+            </summary>
+            <returns>A random boolean value.</returns>
+        </member>
+        <member name="M:Woof.Algorithms.SysRandom.NextByte">
+            <summary>
+            Returns next random byte.
+            </summary>
+            <returns>Random byte.</returns>
+        </member>
+        <member name="T:Woof.Algorithms.XorShift32">
+            <summary>
+            Fast 32-bit pseudo-random number generator.
+            </summary>
+            <remarks>
+            Optimized for speed on x64 and x86 systems.
+            </remarks>
+        </member>
+        <member name="M:Woof.Algorithms.XorShift32.#ctor(System.Int32)">
+            <summary>
+            Creates and seeds PRNG.
+            </summary>
+            <param name="seed">32-bit seed value, leave 0 for random seed.</param>
+        </member>
+        <member name="M:Woof.Algorithms.XorShift32.Next">
+            <summary>
+            Returns a non-negative random integer.
+            </summary>
+            <returns>A 32-bit signed integer that is greater than or equal to 0 and less than System.Int32.MaxValue.</returns>
+        </member>
+        <member name="M:Woof.Algorithms.XorShift32.Next(System.Int32)">
+            <summary>
+            Returns a non-negative random integer that is less than the specified maximum.
+            </summary>
+            <param name="max">The exclusive upper bound of the random number to be generated. maxValue must be greater than or equal to 0.</param>
+            <returns>A 32-bit signed integer greater than or equal to minValue and less than maxValue; that is, the range of return values includes minValue but not maxValue. If minValue equals maxValue, minValue is returned.</returns>
+        </member>
+        <member name="M:Woof.Algorithms.XorShift32.Next(System.Int32,System.Int32)">
+            <summary>
+            Returns a random integer that is within a specified range.
+            </summary>
+            <param name="min">The inclusive lower bound of the random number returned.</param>
+            <param name="max">The exclusive upper bound of the random number returned. maxValue must be greater than or equal to minValue.</param>
+            <returns>A 32-bit signed integer greater than or equal to minValue and less than maxValue; that is, the range of return values includes minValue but not maxValue. If minValue equals maxValue, minValue is returned.</returns>
+        </member>
+        <member name="M:Woof.Algorithms.XorShift32.NextDouble">
+            <summary>
+            Returns a random floating-point number that is greater than or equal to 0.0 and less than 1.0.
+            </summary>
+            <returns>A double-precision floating point number that is greater than or equal to 0.0 and less than 1.0.</returns>
+        </member>
+        <member name="M:Woof.Algorithms.XorShift32.NextBool">
+            <summary>
+            Returns a random boolean value.
+            </summary>
+            <returns>A random boolean value.</returns>
+        </member>
+        <member name="M:Woof.Algorithms.XorShift32.NextByte">
+            <summary>
+            Returns next random byte.
+            </summary>
+            <returns>Random byte.</returns>
+        </member>
+        <member name="M:Woof.Algorithms.XorShift32.NextBytes(System.Byte[])">
+            <summary>
+            Fills the elements of a specified array of bytes with random numbers.
+            </summary>
+            <param name="buffer">An array of bytes to contain random numbers.</param>
+        </member>
+        <member name="T:Woof.Algorithms.XorShift32T">
+            <summary>
+            TURBO 32-bit pseudo-random number generator. Utilizes unsafe operations for speed.
+            </summary>
+            <remarks>
+            Optimized for speed on x64 and x86 systems.
+            </remarks>
+        </member>
+        <member name="M:Woof.Algorithms.XorShift32T.#ctor(System.Int32)">
+            <summary>
+            Creates and seeds PRNG.
+            </summary>
+            <param name="seed">32-bit seed value, leave 0 for random seed.</param>
+        </member>
+        <member name="M:Woof.Algorithms.XorShift32T.Next">
+            <summary>
+            Returns a non-negative random integer.
+            </summary>
+            <returns>A 32-bit signed integer that is greater than or equal to 0 and less than System.Int32.MaxValue.</returns>
+        </member>
+        <member name="M:Woof.Algorithms.XorShift32T.Next(System.Int32)">
+            <summary>
+            Returns a non-negative random integer that is less than the specified maximum.
+            </summary>
+            <param name="max">The exclusive upper bound of the random number to be generated. maxValue must be greater than or equal to 0.</param>
+            <returns>A 32-bit signed integer greater than or equal to minValue and less than maxValue; that is, the range of return values includes minValue but not maxValue. If minValue equals maxValue, minValue is returned.</returns>
+        </member>
+        <member name="M:Woof.Algorithms.XorShift32T.Next(System.Int32,System.Int32)">
+            <summary>
+            Returns a random integer that is within a specified range.
+            </summary>
+            <param name="min">The inclusive lower bound of the random number returned.</param>
+            <param name="max">The exclusive upper bound of the random number returned. maxValue must be greater than or equal to minValue.</param>
+            <returns>A 32-bit signed integer greater than or equal to minValue and less than maxValue; that is, the range of return values includes minValue but not maxValue. If minValue equals maxValue, minValue is returned.</returns>
+        </member>
+        <member name="M:Woof.Algorithms.XorShift32T.NextDouble">
+            <summary>
+            Returns a random floating-point number that is greater than or equal to 0.0 and less than 1.0.
+            </summary>
+            <returns>A double-precision floating point number that is greater than or equal to 0.0 and less than 1.0.</returns>
+        </member>
+        <member name="M:Woof.Algorithms.XorShift32T.NextBool">
+            <summary>
+            Returns a random boolean value.
+            </summary>
+            <returns>A random boolean value.</returns>
+        </member>
+        <member name="M:Woof.Algorithms.XorShift32T.NextByte">
+            <summary>
+            Returns next random byte.
+            </summary>
+            <returns>Random byte.</returns>
+        </member>
+        <member name="M:Woof.Algorithms.XorShift32T.NextBytes(System.Byte[])">
+            <summary>
+            Fills the elements of a specified array of bytes with random numbers.
+            </summary>
+            <param name="buffer">An array of bytes to contain random numbers.</param>
+        </member>
+        <member name="T:Woof.Algorithms.XorShift8">
+            <summary>
+            Simple 8-bit Xorshift random bytes generator toy.
+            </summary>
+        </member>
+        <member name="P:Woof.Algorithms.XorShift8.Next">
+            <summary>
+            Returns a random byte.
+            </summary>
+        </member>
+        <member name="T:Woof.Algorithms.XorShiftStar64">
+            <summary>
+            Fast 64-bit Xorshift Star generatr.
+            </summary>
+        </member>
+        <member name="P:Woof.Algorithms.XorShiftStar64.Seed">
+            <summary>
+            Gets or sets generator seed. Assign 0 for random seed.
+            </summary>
+        </member>
+        <member name="M:Woof.Algorithms.XorShiftStar64.#ctor(System.Int64)">
+            <summary>
+            Creates a new instance of <see cref="T:Woof.Algorithms.XorShiftStar64"/> PRNG.
+            </summary>
+            <param name="seed">Seed value, leave zero for random seed.</param>
+        </member>
+        <member name="M:Woof.Algorithms.XorShiftStar64.NextBytes(System.Byte[])">
+            <summary>
+            Fills the elements of a specified array of bytes with random numbers.
+            </summary>
+            <param name="buffer">An array of bytes to contain random numbers.</param>
+        </member>
+        <member name="M:Woof.Algorithms.XorShiftStar64.NextDouble">
+            <summary>
+            Returns a random floating-point number that is greater than or equal to 0.0 and less than 1.0.
+            </summary>
+            <returns>A double-precision floating point number that is greater than or equal to 0.0 and less than 1.0.</returns>
+        </member>
+        <member name="F:Woof.Algorithms.XorShiftStar64.State">
+            <summary>
+            Internal state.
+            </summary>
+        </member>
+        <member name="F:Woof.Algorithms.XorShiftStar64.BCS">
+            <summary>
+            Byte counter shift state.
+            </summary>
+        </member>
+        <member name="T:Woof.AssemblyEx.AssemblyInfo">
+            <summary>
+            Quick access to current project's assebly information
+            </summary>
+        </member>
+        <member name="M:Woof.AssemblyEx.AssemblyInfo.#ctor(System.Reflection.Assembly)">
+            <summary>
+            Creates new <see cref="T:Woof.AssemblyEx.AssemblyInfo"/> instance.
+            </summary>
+            <param name="assembly">Assembly, entry assembly will be used if not specified.</param>
+        </member>
+        <member name="P:Woof.AssemblyEx.AssemblyInfo.Entry">
+            <summary>
+            Gets the <see cref="T:Woof.AssemblyEx.AssemblyInfo"/> instance for the main executable (EXE, not DLL).
+            </summary>
+        </member>
+        <member name="P:Woof.AssemblyEx.AssemblyInfo.Executing">
+            <summary>
+            Gets the <see cref="T:Woof.AssemblyEx.AssemblyInfo"/> instance for the current module (DLL if called from a library or EXE if called from main).
+            </summary>
+        </member>
+        <member name="P:Woof.AssemblyEx.AssemblyInfo.Path">
+            <summary>
+            Gets the assembly path.
+            </summary>
+        </member>
+        <member name="P:Woof.AssemblyEx.AssemblyInfo.Directory">
+            <summary>
+            Gets the assembly directory.
+            </summary>
+        </member>
+        <member name="P:Woof.AssemblyEx.AssemblyInfo.Name">
+            <summary>
+            Name (suitable for event source)
+            </summary>
+        </member>
+        <member name="P:Woof.AssemblyEx.AssemblyInfo.Title">
+            <summary>
+            Title (suitable for displayed service name)
+            </summary>
+        </member>
+        <member name="P:Woof.AssemblyEx.AssemblyInfo.Description">
+            <summary>
+            Description (suitable for service description)
+            </summary>
+        </member>
+        <member name="P:Woof.AssemblyEx.AssemblyInfo.Company">
+            <summary>
+            Company name
+            </summary>
+        </member>
+        <member name="P:Woof.AssemblyEx.AssemblyInfo.Product">
+            <summary>
+            Internal product name (suitable as service name identifier)
+            </summary>
+        </member>
+        <member name="P:Woof.AssemblyEx.AssemblyInfo.Copyright">
+            <summary>
+            Copyright information
+            </summary>
+        </member>
+        <member name="P:Woof.AssemblyEx.AssemblyInfo.Trademark">
+            <summary>
+            Trademark
+            </summary>
+        </member>
+        <member name="P:Woof.AssemblyEx.AssemblyInfo.Version">
+            <summary>
+            Version
+            </summary>
+        </member>
+        <member name="P:Woof.AssemblyEx.AssemblyInfo.Namespace">
+            <summary>
+            Main program namespace
+            </summary>
+        </member>
+        <member name="M:Woof.AssemblyEx.AssemblyInfo.Stream(System.String)">
+            <summary>
+            Returns a stream from embedded resource
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Woof.AssemblyEx.AssemblyInfo.Text(System.String)">
+            <summary>
+            Returns a text read from embedded resource
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Woof.AssemblyEx.AssemblyInfo.A">
+            <summary>
+            Target assembly
+            </summary>
+        </member>
+        <member name="T:Woof.Core.ApplicationDirectory">
+            <summary>
+            Represents configured application directory.
+            </summary>
+        </member>
+        <member name="M:Woof.Core.ApplicationDirectory.#ctor(System.String[])">
+            <summary>
+            Creates configured application directory (object and the physical directory).
+            </summary>
+            <param name="directories">Absolute or relative path. Relative paths are always relative to exe file location.</param>
+        </member>
+        <member name="P:Woof.Core.ApplicationDirectory.Root">
+            <summary>
+            Gets the application root directory.
+            </summary>
+        </member>
+        <member name="P:Woof.Core.ApplicationDirectory.Directories">
+            <summary>
+            Gets the original string provided to the constructor.
+            </summary>
+        </member>
+        <member name="P:Woof.Core.ApplicationDirectory.Absolute">
+            <summary>
+            Gets the absolute path to configured directory.
+            </summary>
+        </member>
+        <member name="P:Woof.Core.ApplicationDirectory.Relative">
+            <summary>
+            Gets the relative path to configured directory.
+            </summary>
+        </member>
+        <member name="T:Woof.Core.ExpandoObjectExtensions">
+            <summary>
+            ExpandoObject extra methods.
+            </summary>
+        </member>
+        <member name="M:Woof.Core.ExpandoObjectExtensions.HasProperty(System.Dynamic.ExpandoObject,System.String)">
+            <summary>
+            Tests if ExpandoObject has specified property set without throwing exception.
+            </summary>
+            <param name="obj">ExpandoObject.</param>
+            <param name="propertyName">Property name.</param>
+            <returns>True if property exists.</returns>
+        </member>
+        <member name="T:Woof.Core.MimeMapping">
+            <summary>
+            MIME mapping class borrowed from .NET Framework 4.7.2 source.
+            <see href="https://referencesource.microsoft.com/#System.Web/MimeMapping.cs,7f2fef0f50e5efae,references"/>
+            </summary>
+        </member>
+        <member name="M:Woof.Core.MimeMapping.GetMimeMapping(System.String)">
+            <summary>
+            Gets the MIME type derived from file name.
+            </summary>
+            <param name="fileName">File name with extension.</param>
+            <returns>MIME type.</returns>
+        </member>
+        <member name="T:Woof.Core.Resource">
+            <summary>
+            Embedded resource reader.
+            </summary>
+        </member>
+        <member name="P:Woof.Core.Resource.Stream">
+            <summary>
+            Gets embedded resource as stream.
+            </summary>
+        </member>
+        <member name="P:Woof.Core.Resource.Text">
+            <summary>
+            Gets embedded resource as text.
+            </summary>
+        </member>
+        <member name="P:Woof.Core.Resource.Document">
+            <summary>
+            Gets embedded resource as document.
+            </summary>
+        </member>
+        <member name="M:Woof.Core.Resource.#ctor(System.Reflection.Assembly,System.String)">
+            <summary>
+            Creates embedded resource reference.
+            </summary>
+            <param name="assembly">Assembly to load the resource from.</param>
+            <param name="path">Relative path to the project file.</param>
+            <exception cref="T:System.IO.FileNotFoundException">Thrown when embedded resource name could not be matched.</exception>
+            <remarks>
+            Only the last part of the path is matched, so specify the fullest patch which identifies the correct file.
+            </remarks>
+        </member>
+        <member name="M:Woof.Core.Resource.#ctor(System.String)">
+            <summary>
+            Creates embedded resource reference.
+            </summary>
+            <param name="path">Relative path to the project file.</param>
+            <exception cref="T:System.IO.FileNotFoundException">Thrown when embedded resource name could not be matched.</exception>
+            <remarks>
+            Only the last part of the path is matched, so specify the fullest patch which identifies the correct file.
+            </remarks>
+        </member>
+        <member name="M:Woof.Core.Resource.Enumerate(System.Reflection.Assembly,System.String)">
+            <summary>
+            Enumerates all resource paths matching the specified pattern within given assembly.
+            </summary>
+            <param name="assembly">Assembly to test.</param>
+            <param name="pattern">Wildcard pattern.</param>
+            <returns>A collection of matching paths.</returns>
+        </member>
+        <member name="M:Woof.Core.Resource.Enumerate(System.String)">
+            <summary>
+            Enumerates all resource paths matching the specified pattern within entry assembly (usually main exe).
+            </summary>
+            <param name="pattern">Wildcard pattern.</param>
+            <returns>A collection of matching paths.</returns>
+        </member>
+        <member name="M:Woof.Core.Resource.Exists(System.Reflection.Assembly,System.String)">
+            <summary>
+            Checks if a resource specified with the path exists within given assembly.
+            </summary>
+            <param name="assembly">Assembly to test.</param>
+            <param name="path">Relative path to the project file.</param>
+            <returns>True if the resource exists.</returns>
+        </member>
+        <member name="M:Woof.Core.Resource.Exists(System.String)">
+            <summary>
+            Checks if a resource specified with the path exists within entry assembly (usually main exe).
+            </summary>
+            <param name="path">Relative path to the project file.</param>
+            <returns>True if the resource exists.</returns>
+        </member>
+        <member name="M:Woof.Core.Resource.GetAssemblyPath(System.Reflection.Assembly,System.String)">
+            <summary>
+            Gets the path to the resource stream.
+            </summary>
+            <param name="assembly">Assembly to test.</param>
+            <param name="path">Relative path to the project file.</param>
+            <returns>Assembly path.</returns>
+        </member>
+        <member name="T:Woof.Core.ResourceAttachment">
+            <summary>
+            Represents an attachment to an email created from an assembly resource.
+            </summary>
+        </member>
+        <member name="M:Woof.Core.ResourceAttachment.#ctor(System.Reflection.Assembly,System.String,System.String,System.String)">
+            <summary>
+            Creates new image attachment from specified assembly.
+            </summary>
+            <param name="assembly">Containing assembly.</param>
+            <param name="name">Resource name.</param>
+            <param name="contentId">Content identifier.</param>
+            <param name="disposition">Content disposition: "attachment" or "inline".</param>
+        </member>
+        <member name="M:Woof.Core.ResourceAttachment.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Creates new image attachment from entry assembly.
+            </summary>
+            <param name="name">Resource name.</param>
+            <param name="contentId">Content identifier.</param>
+            <param name="disposition">Content disposition: "attachment" or "inline".</param>
+        </member>
+        <member name="T:Woof.Core.XTemplate">
+            <summary>
+            XML template document.
+            </summary>
+        </member>
+        <member name="F:Woof.Core.XTemplate.TemplateTarget">
+            <summary>
+            Attribute used to target elements of the template.
+            </summary>
+        </member>
+        <member name="M:Woof.Core.XTemplate.#ctor">
+            <summary>
+            Creates a blank template document.
+            </summary>
+        </member>
+        <member name="M:Woof.Core.XTemplate.#ctor(System.String)">
+            <summary>
+            Create a template document from embedded resource.
+            </summary>
+            <param name="path">Embedded resource path.</param>
+        </member>
+        <member name="M:Woof.Core.XTemplate.#ctor(System.Xml.Linq.XDocument)">
+            <summary>
+            Creates a template document from another document.
+            </summary>
+            <param name="document">Other document.</param>
+        </member>
+        <member name="M:Woof.Core.XTemplate.op_Implicit(Woof.Core.XTemplate)~System.Xml.Linq.XElement">
+            <summary>
+            Implicit to XElement conversion.
+            </summary>
+            <param name="t"></param>
+        </member>
+        <member name="M:Woof.Core.XTemplate.Target(System.String)">
+            <summary>
+            Targets elemt by <see cref="F:Woof.Core.XTemplate.TemplateTarget"/> attribute. The attribute is then removed from the template.
+            </summary>
+            <param name="name">Attribute value to search.</param>
+            <returns>Targetted element.</returns>
+        </member>
+        <member name="M:Woof.Core.XTemplate.Target(System.String,System.Xml.Linq.XElement)">
+            <summary>
+            Targets element by <see cref="F:Woof.Core.XTemplate.TemplateTarget"/> attribute. The attribute is then removed from the template.
+            </summary>
+            <param name="name">Attribute value to search.</param>
+            <param name="root">Root element.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Woof.Core.XTemplate.TakeTarget(System.String)">
+            <summary>
+            Targets element by <see cref="F:Woof.Core.XTemplate.TemplateTarget"/> attribute. Takes the targetted element out from the template.
+            For use with dynamic elements like containers and items.
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Woof.Core.XTemplate.TakeTarget(System.String,System.Xml.Linq.XElement)">
+            <summary>
+            Targets element by <see cref="F:Woof.Core.XTemplate.TemplateTarget"/> attribute. Takes the targetted element out from the template.
+            For use with dynamic elements like containers and items.
+            </summary>
+            <param name="name"></param>
+            <param name="root"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Woof.SystemEx.BufferEventArgs">
+            <summary>
+            Event arguments for buffered I/O.
+            </summary>
+        </member>
+        <member name="P:Woof.SystemEx.BufferEventArgs.Buffer">
+            <summary>
+            Gets send / receive buffer.
+            </summary>
+        </member>
+        <member name="P:Woof.SystemEx.BufferEventArgs.Length">
+            <summary>
+            Gets meaningful buffered data length. Can be less than buffer length.
+            </summary>
+        </member>
+        <member name="M:Woof.SystemEx.BufferEventArgs.#ctor(System.Byte[],System.Int32)">
+            <summary>
+            Creates new <see cref="T:Woof.SystemEx.BufferEventArgs"/> instance from buffer.
+            </summary>
+            <param name="buffer">Data buffer.</param>
+            <param name="length">Meaningful data length.</param>
+        </member>
+        <member name="T:Woof.SystemEx.BufferPool">
+            <summary>
+            A simple fixed-size, thread-safe buffer pool.
+            Used to avoid frequent memory collections / allocations.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.BufferPool.Size">
+            <summary>
+            Default buffer size.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.BufferPool.Pool">
+            <summary>
+            Actual buffer collection.
+            </summary>
+        </member>
+        <member name="M:Woof.SystemEx.BufferPool.#ctor(System.Int32)">
+            <summary>
+            Creates new buffer pool with specified buffer size.
+            </summary>
+            <param name="size">Buffer size in bytes, default 1KB.</param>
+        </member>
+        <member name="M:Woof.SystemEx.BufferPool.Get">
+            <summary>
+            Gets a buffer from the pool.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Woof.SystemEx.BufferPool.Put(System.Byte[])">
+            <summary>
+            Returns a buffer to the pool.
+            </summary>
+            <param name="buffer"></param>
+        </member>
+        <member name="T:Woof.SystemEx.CommandLineArguments">
+            <summary>
+            A class for storing command line arguments collection and converting them to a valid Windows command line string.
+            </summary>
+        </member>
+        <member name="P:Woof.SystemEx.CommandLineArguments.Length">
+            <summary>
+            Returs arguments collection length.
+            </summary>
+        </member>
+        <member name="P:Woof.SystemEx.CommandLineArguments.Item(System.Int32)">
+            <summary>
+            Returns argument value specified with its index.
+            </summary>
+            <param name="i">Zero based collection index.</param>
+            <returns>Argument value.</returns>
+        </member>
+        <member name="M:Woof.SystemEx.CommandLineArguments.#ctor(System.String[])">
+            <summary>
+            Creates new command line arguments collection.
+            </summary>
+            <param name="arguments">Unquoted arguments.</param>
+        </member>
+        <member name="M:Woof.SystemEx.CommandLineArguments.ToString">
+            <summary>
+            Serializes command line arguments collection with necessary character quoting.
+            </summary>
+            <returns>Serialized command line arguments string.</returns>
+        </member>
+        <member name="M:Woof.SystemEx.CommandLineArguments.op_Implicit(Woof.SystemEx.CommandLineArguments)~System.String">
+            <summary>
+            Performs implict <see cref="M:Woof.SystemEx.CommandLineArguments.ToString"/> conversion.
+            </summary>
+            <param name="args">Arguments object.</param>
+        </member>
+        <member name="M:Woof.SystemEx.CommandLineArguments.AppendArgument(System.Text.StringBuilder,System.String)">
+            <summary>
+            Quotes argument string and appends it to specified <see cref="T:System.Text.StringBuilder"/>.
+            </summary>
+            <param name="b"><see cref="T:System.Text.StringBuilder"/> object the quoted argument will be appended to.</param>
+            <param name="arg">Unquoted argument value.</param>
+        </member>
+        <member name="M:Woof.SystemEx.CommandLineArguments.GetEnumerator">
+            <summary>
+            Enumerates items.
+            </summary>
+            <returns>Generic enumerator.</returns>
+        </member>
+        <member name="M:Woof.SystemEx.CommandLineArguments.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Enumerates items.
+            </summary>
+            <returns>Non-generic enumerator.</returns>
+        </member>
+        <member name="F:Woof.SystemEx.CommandLineArguments.ArgQuoteChars">
+            <summary>
+            Characters which must be quoted in argument strings.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.CommandLineArguments.Items">
+            <summary>
+            Argument values.
+            </summary>
+        </member>
+        <member name="T:Woof.SystemEx.DateRange">
+            <summary>
+            Date range generator
+            </summary>
+        </member>
+        <member name="M:Woof.SystemEx.DateRange.#ctor(System.DateTime,System.DateTime)">
+            <summary>
+            Creates a date range to iterate between 2 dates.
+            </summary>
+            <param name="since">Start date, the first returned value.</param>
+            <param name="until">End date, NOT INCLUDED, iteration ends before that date.</param>
+        </member>
+        <member name="M:Woof.SystemEx.DateRange.GetEnumerator">
+            <summary>
+            Enumerates all dates between start date (inclusive) and end date (exclusive).
+            </summary>
+            <returns>Generic enumerator.</returns>
+        </member>
+        <member name="M:Woof.SystemEx.DateRange.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Enumerates all dates between start date (inclusive) and end date (exclusive).
+            </summary>
+            <returns>Non-generic enumerator.</returns>
+        </member>
+        <member name="F:Woof.SystemEx.DateRange.Since">
+            <summary>
+            Start date.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.DateRange.Until">
+            <summary>
+            End date.
+            </summary>
+        </member>
+        <member name="T:Woof.SystemEx.DGuid">
+            <summary>
+            Deterministic (namespaced) GUID compliant with <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a>.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.DGuid.DefaultNamespace">
+            <summary>
+            Default namespace for this class of GUIDs.
+            </summary>
+        </member>
+        <member name="P:Woof.SystemEx.DGuid.Namespace">
+            <summary>
+            Gets or sets actual namespace GUID.
+            Override to create different types of GUIDs.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.DGuid.DG">
+            <summary>
+            Deterministic guid value.
+            </summary>
+        </member>
+        <member name="M:Woof.SystemEx.DGuid.#ctor(System.Byte[])">
+            <summary>
+            Creates deterministic UUID v5 from any byte buffer.
+            </summary>
+            <param name="id">Initialization data.</param>
+        </member>
+        <member name="M:Woof.SystemEx.DGuid.#ctor(System.String)">
+            <summary>
+            Creates deterministic UUID v5 from string.
+            </summary>
+            <param name="id">Initialization string.</param>
+        </member>
+        <member name="M:Woof.SystemEx.DGuid.ToString">
+            <summary>
+            Returns DGuid as string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Woof.SystemEx.DGuid.op_Implicit(Woof.SystemEx.DGuid)~System.Guid">
+            <summary>
+            Implicit DGuid to Guid conversion.
+            </summary>
+            <param name="dg">Deterministic UUID.</param>
+        </member>
+        <member name="M:Woof.SystemEx.DGuid.op_Implicit(Woof.SystemEx.DGuid)~System.Byte[]">
+            <summary>
+            Implicit DGuid to byte[] conversion.
+            </summary>
+            <param name="dg">Deterministic UUID.</param>
+        </member>
+        <member name="M:Woof.SystemEx.DGuid.op_Implicit(Woof.SystemEx.DGuid)~System.String">
+            <summary>
+            Implicit DGuid to string conversion.
+            </summary>
+            <param name="dg">Deterministic UUID.</param>
+        </member>
+        <member name="T:Woof.SystemEx.DiagnosticStream">
+            <summary>
+            Stream wrapper reporting I/O operations progress.
+            </summary>
+        </member>
+        <member name="E:Woof.SystemEx.DiagnosticStream.ReadCompleted">
+            <summary>
+            Occurs when single read operation has completed.
+            </summary>
+        </member>
+        <member name="E:Woof.SystemEx.DiagnosticStream.WriteCompleted">
+            <summary>
+            Occurs when signle write operation has completed.
+            </summary>
+        </member>
+        <member name="E:Woof.SystemEx.DiagnosticStream.EndOfContent">
+            <summary>
+            Occurs when read operation reached end of content.
+            </summary>
+        </member>
+        <member name="E:Woof.SystemEx.DiagnosticStream.Closed">
+            <summary>
+            Occurs when the inner stream is closed.
+            </summary>
+        </member>
+        <member name="P:Woof.SystemEx.DiagnosticStream.BytesRead">
+            <summary>
+            Gets the total number of bytes read from the stream.
+            </summary>
+        </member>
+        <member name="P:Woof.SystemEx.DiagnosticStream.BytesWritten">
+            <summary>
+            Gets the total number of bytes written to the stream.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.DiagnosticStream.InnerStream">
+            <summary>
+            Inner stream instance.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.DiagnosticStream.ContentLength">
+            <summary>
+            Known content length. Null if unknown.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.DiagnosticStream.IsDisposed">
+            <summary>
+            True if the inner stream is disposed.
+            </summary>
+        </member>
+        <member name="M:Woof.SystemEx.DiagnosticStream.#ctor(System.IO.Stream,System.Nullable{System.Int64})">
+            <summary>
+            Creates diagnostic wrapper over inner stream.
+            </summary>
+            <param name="innerStream">Inner stream.</param>
+            <param name="contentLength">Known content length.</param>
+        </member>
+        <member name="P:Woof.SystemEx.DiagnosticStream.CanRead">
+            <summary>
+            Gets a value indicating whether the current stream supports reading.
+            </summary>
+        </member>
+        <member name="P:Woof.SystemEx.DiagnosticStream.CanSeek">
+            <summary>
+            Gets a value indicating whether the current stream supports seeking.
+            </summary>
+        </member>
+        <member name="P:Woof.SystemEx.DiagnosticStream.CanWrite">
+            <summary>
+            Gets a value indicating whether the current stream supports writing.
+            </summary>
+        </member>
+        <member name="P:Woof.SystemEx.DiagnosticStream.Length">
+            <summary>
+            Gets the length in bytes of the stream.
+            </summary>
+            <exception cref="T:System.NotSupportedException">A class derived from Stream does not support seeking.</exception>
+            <exception cref="T:System.ObjectDisposedException">Methods were called after the stream was closed.</exception>
+        </member>
+        <member name="P:Woof.SystemEx.DiagnosticStream.Position">
+            <summary>
+            Gets or sets the position within the current stream.
+            </summary>
+            <exception cref="T:System.IO.IOException">An I/O error occurs.</exception>
+            <exception cref="T:System.NotSupportedException">The stream does not support seeking.</exception>
+            <exception cref="T:System.ObjectDisposedException">Methods were called after the stream was closed.</exception>
+        </member>
+        <member name="M:Woof.SystemEx.DiagnosticStream.Flush">
+            <summary>
+            Clears all buffers for this stream and causes any buffered data to be written to the underlying device.
+            </summary>
+            <exception cref="T:System.IO.IOException">An I/O error occurs.</exception>
+        </member>
+        <member name="M:Woof.SystemEx.DiagnosticStream.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Reads a sequence of bytes from the current stream and advances the position within the stream by the number of bytes read.
+            </summary>
+            <param name="buffer">
+            An array of bytes. When this method returns, the buffer contains the specified
+            byte array with the values between offset and (offset + count - 1) replaced by
+            the bytes read from the current source.
+            </param>
+            <param name="offset">The zero-based byte offset in buffer at which to begin storing the data read from the current stream.</param>
+            <param name="count">The maximum number of bytes to be read from the current stream.</param>
+            <returns>
+            The total number of bytes read into the buffer. This can be less than the number
+            of bytes requested if that many bytes are not currently available, or zero (0)
+            if the end of the stream has been reached.
+            </returns>
+            <exception cref="T:System.ArgumentException">The sum of offset and count is larger than the buffer length.</exception>
+            <exception cref="T:System.ArgumentNullException">Buffer is null.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Offset or count is negative.</exception>
+            <exception cref="T:System.IO.IOException">An I/O error occurs.</exception>
+            <exception cref="T:System.NotSupportedException">The stream does not support reading.</exception>
+            <exception cref="T:System.ObjectDisposedException">Methods were called after the stream was closed.</exception>
+        </member>
+        <member name="M:Woof.SystemEx.DiagnosticStream.Seek(System.Int64,System.IO.SeekOrigin)">
+            <summary>
+            Sets the position within the current stream.
+            </summary>
+            <param name="offset">A byte offset relative to the origin parameter.</param>
+            <param name="origin">A value of type System.IO.SeekOrigin indicating the reference point used to obtain the new position.</param>
+            <returns>The new position within the current stream.</returns>
+            <exception cref="T:System.IO.IOException">An I/O error occurs.</exception>
+            <exception cref="T:System.NotSupportedException">The stream does not support seeking.</exception>
+            <exception cref="T:System.ObjectDisposedException">Methods were called after the stream was closed.</exception>
+        </member>
+        <member name="M:Woof.SystemEx.DiagnosticStream.SetLength(System.Int64)">
+            <summary>
+            Sets the length of the current stream.
+            </summary>
+            <param name="value">The desired length of the current stream in bytes.</param>
+            <exception cref="T:System.IO.IOException">An I/O error occurs.</exception>
+            <exception cref="T:System.NotSupportedException">The stream does not support seeking.</exception>
+            <exception cref="T:System.ObjectDisposedException">Methods were called after the stream was closed.</exception>
+        </member>
+        <member name="M:Woof.SystemEx.DiagnosticStream.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Writes a sequence of bytes to the current stream and advances the current position within this stream by the number of bytes written.
+            </summary>
+            <param name="buffer">An array of bytes. This method copies count bytes from buffer to the current stream.</param>
+            <param name="offset">The zero-based byte offset in buffer at which to begin copying bytes to the current stream.</param>
+            <param name="count">The number of bytes to be written to the current stream.</param>
+            <exception cref="T:System.ArgumentException">The sum of offset and count is larger than the buffer length.</exception>
+            <exception cref="T:System.ArgumentNullException">Buffer is null.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Offset or count is negative.</exception>
+            <exception cref="T:System.IO.IOException">An I/O error occurs.</exception>
+            <exception cref="T:System.NotSupportedException">The stream does not support writing.</exception>
+            <exception cref="T:System.ObjectDisposedException">Methods were called after the stream was closed.</exception>
+        </member>
+        <member name="M:Woof.SystemEx.DiagnosticStream.Close">
+            <summary>
+            Closes the current stream and releases any resources (such as sockets and file
+            handles) associated with the current stream. Instead of calling this method,
+            ensure that the stream is properly disposed.
+            </summary>
+        </member>
+        <member name="M:Woof.SystemEx.DiagnosticStream.Dispose(System.Boolean)">
+            <summary>
+            Releases all resources used by the System.IO.Stream.
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="T:Woof.SystemEx.Download">
+            <summary>
+            HTTP responsive file downloader.
+            </summary>
+        </member>
+        <member name="E:Woof.SystemEx.Download.DownloadProgressChanged">
+            <summary>
+            Occurs when download progress is changed by at least 1%.
+            </summary>
+        </member>
+        <member name="E:Woof.SystemEx.Download.DownloadCompleted">
+            <summary>
+            Occurs when download completes.
+            </summary>
+        </member>
+        <member name="P:Woof.SystemEx.Download.Uri">
+            <summary>
+            Gets the current download <see cref="P:Woof.SystemEx.Download.Uri"/>.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.Download.IsDisposed">
+            <summary>
+            True if this instance is already disposed.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.Download.IsDisposing">
+            <summary>
+            True if the instance is being disposed;
+            </summary>
+        </member>
+        <member name="M:Woof.SystemEx.Download.#ctor(System.Uri)">
+            <summary>
+            Creates new HTTP file downloader.
+            </summary>
+            <param name="uri"><see cref="P:Woof.SystemEx.Download.Uri"/> requested.</param>
+        </member>
+        <member name="M:Woof.SystemEx.Download.GetStream">
+            <summary>
+            Gets the <see cref="T:Woof.SystemEx.DiagnosticStream"/> for the downloaded file. Returns null if the response status is not OK.
+            </summary>
+            <returns><see cref="T:Woof.SystemEx.DiagnosticStream"/> or null for error responses.</returns>
+        </member>
+        <member name="M:Woof.SystemEx.Download.Dispose">
+            <summary>
+            Disposes HTTP response and the download stream if needed.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.Download.UA">
+            <summary>
+            User agent string used to indicate the Edge browser used.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.Download.Request">
+            <summary>
+            HTTP request instance.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.Download.Response">
+            <summary>
+            HTTP response instance.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.Download.Stream">
+            <summary>
+            Diagnostinc stream used to report progress.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.Download.Progress">
+            <summary>
+            Download progress in percents.
+            </summary>
+        </member>
+        <member name="T:Woof.SystemEx.ExceptionEventArgs">
+            <summary>
+            Generic exception event arguments missing in <see cref="N:System"/> namespace.
+            </summary>
+        </member>
+        <member name="P:Woof.SystemEx.ExceptionEventArgs.Exception">
+            <summary>
+            Gets the exception.
+            </summary>
+        </member>
+        <member name="P:Woof.SystemEx.ExceptionEventArgs.Tag">
+            <summary>
+            Gets the optional tag object if available.
+            </summary>
+        </member>
+        <member name="M:Woof.SystemEx.ExceptionEventArgs.#ctor(System.Exception,System.Object)">
+            <summary>
+            Creates new exception event arguments.
+            </summary>
+            <param name="exception">The exception to pass.</param>
+            <param name="tag">Optional tag object.</param>
+        </member>
+        <member name="T:Woof.SystemEx.IniFile">
+            <summary>
+            A minimalistic ini / conf file class.
+            Allows storing string type settings organized in sections.
+            </summary>
+        </member>
+        <member name="P:Woof.SystemEx.IniFile.FilePath">
+            <summary>
+            Gets the path to the configuration file.
+            </summary>
+        </member>
+        <member name="P:Woof.SystemEx.IniFile.Sections">
+            <summary>
+            Gets the sections dictionary.
+            </summary>
+        </member>
+        <member name="P:Woof.SystemEx.IniFile.SectionKeys">
+            <summary>
+            Gets the sections dictionary keys.
+            </summary>
+        </member>
+        <member name="M:Woof.SystemEx.IniFile.#ctor(System.String)">
+            <summary>
+            Creates and reads a configuration file.
+            </summary>
+            <param name="filePath">Path to the configuration file.</param>
+        </member>
+        <member name="M:Woof.SystemEx.IniFile.Read">
+            <summary>
+            Reads the configuration if exists.
+            </summary>
+        </member>
+        <member name="M:Woof.SystemEx.IniFile.Read(System.String[])">
+            <summary>
+            Reads the configuration from line array.
+            </summary>
+            <param name="lines">Configuration lines.</param>
+        </member>
+        <member name="M:Woof.SystemEx.IniFile.Write">
+            <summary>
+            Writes the configuration.
+            </summary>
+        </member>
+        <member name="P:Woof.SystemEx.IniFile.Item(System.String)">
+            <summary>
+            Gets or sets the configuration section specified with the section key. Set null to remove a key.
+            </summary>
+            <param name="key">Section key.</param>
+            <returns><see cref="T:System.Collections.Specialized.NameValueCollection"/></returns>
+        </member>
+        <member name="M:Woof.SystemEx.IniFile.op_Implicit(Woof.SystemEx.IniFile)~System.String[]">
+            <summary>
+            Converts the configuration file sections to array of strings.
+            </summary>
+            <param name="sections">Configuration file instance.</param>
+        </member>
+        <member name="F:Woof.SystemEx.IniFile._Sections">
+            <summary>
+            A dictionary containing sections.
+            </summary>
+        </member>
+        <member name="T:Woof.SystemEx.ItemEventArgs`1">
+            <summary>
+            Event arguments for reporting item operations.
+            </summary>
+            <typeparam name="T">Item type.</typeparam>
+        </member>
+        <member name="P:Woof.SystemEx.ItemEventArgs`1.Item">
+            <summary>
+            Gets the item processed.
+            </summary>
+        </member>
+        <member name="M:Woof.SystemEx.ItemEventArgs`1.#ctor(`0)">
+            <summary>
+            Creates new event arguments for item processing.
+            </summary>
+            <param name="item">Item being processed.</param>
+        </member>
+        <member name="T:Woof.SystemEx.PathTools">
+            <summary>
+            Tools related to system environment paths.
+            </summary>
+        </member>
+        <member name="M:Woof.SystemEx.PathTools.GetPath(System.EnvironmentVariableTarget)">
+            <summary>
+            Gets current environment PATH as string collection.
+            </summary>
+            <param name="target">Environment location.</param>
+            <returns>Directory string collection.</returns>
+        </member>
+        <member name="M:Woof.SystemEx.PathTools.SetPath(System.Collections.Generic.IEnumerable{System.String},System.EnvironmentVariableTarget)">
+            <summary>
+            Sets specified environment PATH to specified directory string collection.
+            </summary>
+            <param name="collection">Directory path collection.</param>
+            <param name="target">Environment location.</param>
+        </member>
+        <member name="M:Woof.SystemEx.PathTools.IsInPath(System.String,System.EnvironmentVariableTarget)">
+            <summary>
+            Checks whether specified path exists in current environment PATH.
+            </summary>
+            <param name="path">Path to test.</param>
+            <param name="target">Environment location.</param>
+            <returns>True if exits.</returns>
+        </member>
+        <member name="M:Woof.SystemEx.PathTools.AddToPath(System.String,System.EnvironmentVariableTarget)">
+            <summary>
+            Adds specified path to the specified environment PATH if not exists.
+            </summary>
+            <param name="path">Path to add.</param>
+            <param name="target">Environment location.</param>
+        </member>
+        <member name="M:Woof.SystemEx.PathTools.RemoveFromPath(System.String,System.EnvironmentVariableTarget)">
+            <summary>
+            Removes specified path from the specified environment PATH if exists.
+            </summary>
+            <param name="path">Path to remove.</param>
+            <param name="target">Environment location.</param>
+        </member>
+        <member name="M:Woof.SystemEx.PathTools.GetFullPath(System.String)">
+            <summary>
+            Returns a full path to the file if it's accessible from the user or system environment PATH variable.
+            </summary>
+            <param name="fileName">File name.</param>
+            <returns>Full path to the file or null if the file doesn't exist.</returns>
+        </member>
+        <member name="M:Woof.SystemEx.PathTools.IsFileAcessibleInPath(System.String)">
+            <summary>
+            Returns a value indicating whether the specified file is accessible from the user or system environment PATH variable.
+            </summary>
+            <param name="fileName">File name.</param>
+            <returns>True if the file is accessible.</returns>
+        </member>
+        <member name="T:Woof.SystemEx.PercentEventArgs">
+            <summary>
+            Event arguments for reporting progress in integer percents.
+            </summary>
+        </member>
+        <member name="P:Woof.SystemEx.PercentEventArgs.Value">
+            <summary>
+            Gets the integer percent value of the operation progress.
+            </summary>
+        </member>
+        <member name="M:Woof.SystemEx.PercentEventArgs.#ctor(System.Int32)">
+            <summary>
+            Creates new event arguments for reporting percent progress.
+            </summary>
+            <param name="value">Integer percent value of the operation progress.</param>
+        </member>
+        <member name="T:Woof.SystemEx.TimeTrigger">
+            <summary>
+            Simple time trigger for scheduled events.
+            </summary>
+        </member>
+        <member name="E:Woof.SystemEx.TimeTrigger.Elapsed">
+            <summary>
+            Occurs when time set or repeat interval elapsed.
+            </summary>
+        </member>
+        <member name="P:Woof.SystemEx.TimeTrigger.Schedule">
+            <summary>
+            <para>Gets or sets time schedule as string.</para>
+            Accepted formats:
+            <list type="bullet">
+            <item><term>12:34</term><description> - daily at 12:34,</description></item>
+            <item><term>5s</term><description>- every 5 seconds,</description></item>
+            <item><term>0@12:34</term><description>- at 12:34 every Sunday,</description></item>
+            <item><term>05@12:34</term><description>- at 12:34 every 5th day of the month,</description></item>
+            <item><term>LD@12:34</term><description>- at 12:34 every 5th day of the month,</description></item>
+            </list>
+            </summary>
+        </member>
+        <member name="M:Woof.SystemEx.TimeTrigger.#ctor">
+            <summary>
+            Creates and binds timer for the time trigger.
+            </summary>
+        </member>
+        <member name="M:Woof.SystemEx.TimeTrigger.#ctor(System.TimeSpan)">
+            <summary>
+            Creates time trigger based on interval alone.
+            </summary>
+            <param name="interval">Time inverval in which the <see cref="E:Woof.SystemEx.TimeTrigger.Elapsed"/> event will be triggered.</param>
+        </member>
+        <member name="M:Woof.SystemEx.TimeTrigger.#ctor(System.DateTime)">
+            <summary>
+            Creates daily time trigger.
+            </summary>
+            <param name="dailyAt">Time of day the <see cref="E:Woof.SystemEx.TimeTrigger.Elapsed"/> event will be triggered.</param>
+        </member>
+        <member name="M:Woof.SystemEx.TimeTrigger.#ctor(System.String)">
+            <summary>
+            Creates time trigger with schedule defined as string.
+            </summary>
+            <param name="schedule">
+            <para>Accepted formats:</para>
+            <list type="bullet">
+            <item><term>12:34</term><description> - daily at 12:34, </description></item>
+            <item><term>5s</term><description> - every 5 seconds, </description></item>
+            <item><term>0@12:34</term><description> - at 12:34 every Sunday, </description></item>
+            <item><term>05@12:34</term><description> - at 12:34 every 5th day of the month, </description></item>
+            <item><term>LD@12:34</term><decription> - at 12:34 every last day of the month.</decription></item>
+            </list>
+            </param>
+            <exception cref="T:System.ArgumentException">Thrown when schedule string is not recognized.</exception>
+        </member>
+        <member name="M:Woof.SystemEx.TimeTrigger.Set(System.Boolean)">
+            <summary>
+            Sets the time trigger.
+            </summary>
+            <param name="trigger">If true first <see cref="E:Woof.SystemEx.TimeTrigger.Elapsed"/> event will be triggered immediately.</param>
+        </member>
+        <member name="M:Woof.SystemEx.TimeTrigger.ShouldSkip">
+            <summary>
+            Returns true if daily schedule is not due and trigger should be skipped.
+            </summary>
+            <returns>True if daily schedule is not due.</returns>
+        </member>
+        <member name="M:Woof.SystemEx.TimeTrigger.OnElapsed(System.EventArgs)">
+            <summary>
+            Triggers <see cref="E:Woof.SystemEx.TimeTrigger.Elapsed"/> event.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Woof.SystemEx.TimeTrigger.Dispose">
+            <summary>
+            Disposes the timer.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.TimeTrigger.TimeOfDay">
+            <summary>
+            Time of day to start the time trigger.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.TimeTrigger.Interval">
+            <summary>
+            Repeat interval.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.TimeTrigger.DayOfWeek">
+            <summary>
+            Day of the week number: 1 - Monday, 7 - Sunday.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.TimeTrigger.DayOfMonth">
+            <summary>
+            Day of the month number.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.TimeTrigger.LastDayOfTheMonth">
+            <summary>
+            True if trigger in the last day of the month.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.TimeTrigger.RxDaily">
+            <summary>
+            Daily syntax.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.TimeTrigger.RxWeekly">
+            <summary>
+            Weekly syntax.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.TimeTrigger.RxMonthly">
+            <summary>
+            Monthly syntax.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.TimeTrigger.RxInterval">
+            <summary>
+            Interval syntax.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.TimeTrigger.T">
+            <summary>
+            System timer.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.TimeTrigger.D">
+            <summary>
+            Ticks per day.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.TimeTrigger.Ticks">
+            <summary>
+            Tick amounts for time units.
+            </summary>
+        </member>
+        <member name="F:Woof.SystemEx.TimeTrigger._Schedule">
+            <summary>
+            Schedule cache.
+            </summary>
+        </member>
+        <member name="T:CodeDog.Core.Paged`1">
+            <summary>
+            Paged memory buffer for data bigger than 2GB.
+            </summary>
+            <typeparam name="T">Element type.</typeparam>
+        </member>
+        <member name="F:CodeDog.Core.Paged`1.Size">
+            <summary>
+            Total size of paged memory object in bytes.
+            </summary>
+        </member>
+        <member name="F:CodeDog.Core.Paged`1.ElementSize">
+            <summary>
+            Element size in bytes.
+            </summary>
+        </member>
+        <member name="F:CodeDog.Core.Paged`1.Length">
+            <summary>
+            Total length of paged memory object as a number of T elements.
+            </summary>
+        </member>
+        <member name="F:CodeDog.Core.Paged`1.PageSize">
+            <summary>
+            Page size in bytes.
+            </summary>
+        </member>
+        <member name="F:CodeDog.Core.Paged`1.PageLength">
+            <summary>
+            Page length as a number of T elements per page.
+            </summary>
+        </member>
+        <member name="F:CodeDog.Core.Paged`1.PageCount">
+            <summary>
+            Total pages in object.
+            </summary>
+        </member>
+        <member name="F:CodeDog.Core.Paged`1.Pages">
+            <summary>
+            Pages of arrays of T elements.
+            </summary>
+        </member>
+        <member name="F:CodeDog.Core.Paged`1.PAGE_SIZE_LOG2">
+            <summary>
+            The number of the highest bit in PageSize.
+            </summary>
+        </member>
+        <member name="F:CodeDog.Core.Paged`1.OffsetMask">
+            <summary>
+            Unsigned 64-bit integer containing bit mask for page offset part of the 64-bit index.
+            </summary>
+        </member>
+        <member name="P:CodeDog.Core.Paged`1.Item(System.UInt64)">
+            <summary>
+            Accesses an element of the paged memory.
+            </summary>
+            <param name="i">Element index.</param>
+            <returns>Element.</returns>
+        </member>
+        <member name="P:CodeDog.Core.Paged`1.Item(System.Int32,System.Int32)">
+            <summary>
+            Accesses an element of the paged memory.
+            </summary>
+            <param name="page">Page index.</param>
+            <param name="offset">Element offset.</param>
+            <returns>Element.</returns>
+        </member>
+        <member name="M:CodeDog.Core.Paged`1.#ctor(System.UInt64,System.UInt64)">
+            <summary>
+            Allocates paged memory (in large amounts).
+            </summary>
+            <param name="size">Size in bytes (will be truncated to page size, default 1MB).</param>
+            <param name="clearLsb">Target size will have following bits cleared (to provide block divisibility).</param>
+        </member>
+        <member name="M:CodeDog.Core.Paged`1.GetPageAsByteBuffer(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Returns specified page as byte buffer (slow, since the buffer is copied from page).
+            </summary>
+            <param name="i">Page index.</param>
+            <param name="pageOffset">Optional page offset in bytes.</param>
+            <param name="bufferSize">Optional buffer size, 0 means PageSize.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CodeDog.Core.Paged`1.GetPageFromByteBuffer(System.Int32,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Copies specified byte buffer to specified page (slow, since copying is involved).
+            </summary>
+            <param name="i">Page index.</param>
+            <param name="buffer">Fixed length byte buffer.</param>
+            <param name="bufferOffset">Optional buffer offset in bytes.</param>
+            <param name="pageOffset">Optional page offset in bytes.</param>
+        </member>
+        <member name="M:CodeDog.Core.Paged`1.Read(System.IO.Stream)">
+            <summary>
+            Reads pages from stream, if the stream is larger than paged memory, a part of the stream will be read.
+            </summary>
+            <param name="stream">Input stream.</param>
+        </member>
+        <member name="M:CodeDog.Core.Paged`1.Write(System.IO.Stream,System.UInt64)">
+            <summary>
+            Writes all paged memory to a stream.
+            </summary>
+            <param name="stream">Output stream.</param>
+            <param name="size">Optional size in bytes, 0 means all pages</param>
+        </member>
+        <member name="M:CodeDog.Core.Paged`1.ToGibi">
+            <summary>
+            Returns memory size in gigabytes (gibibytes)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CodeDog.Core.Paged`1.ToString">
+            <summary>
+            Returns string description of paged memory object
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
