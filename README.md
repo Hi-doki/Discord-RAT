@@ -17,8 +17,8 @@ If you use this program for malicious purposes, shame on you.
 
 <h3 align=center>Build</h3>
 
-+ Open The Solution File `HiDokiRAT.sln`
++ Open The Solution File `Hi-Doki RAT.sln`
 
-+ Right Click The `.csproj File` In The `Solution Explorer`
++ Right Click `Hi-Doki RAT` CS Project File In The `Solution Explorer`
 
 + Click `Build` And Wait For It To Build The Program :3
