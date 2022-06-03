@@ -1,0 +1,49 @@
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\uwu poggy woggy boy.exe.config
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\uwu poggy woggy boy.exe
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\uwu poggy woggy boy.pdb
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\Discord.Net.Commands.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\Discord.Net.Core.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\Discord.Net.Interactions.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\Discord.Net.Rest.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\Discord.Net.Webhook.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\Discord.Net.WebSocket.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\Newtonsoft.Json.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\System.Buffers.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\System.Collections.Immutable.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\System.Interactive.Async.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\System.Linq.Async.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\System.Memory.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\System.Reactive.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\System.ValueTuple.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\Discord.Net.Commands.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\Discord.Net.Core.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\Discord.Net.Interactions.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\Discord.Net.Rest.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\Discord.Net.Webhook.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\Discord.Net.WebSocket.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\Newtonsoft.Json.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\System.Buffers.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\System.Collections.Immutable.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\System.Interactive.Async.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\System.Linq.Async.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\System.Memory.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\System.Reactive.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\bin\Debug\System.ValueTuple.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\obj\Debug\uwu poggy woggy boy.csproj.AssemblyReference.cache
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\obj\Debug\uwu poggy woggy boy.csproj.SuggestedBindingRedirects.cache
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\obj\Debug\uwu_poggy_woggy_boy.winforms_are_shit.resources
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\obj\Debug\uwu poggy woggy boy.csproj.GenerateResource.cache
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\obj\Debug\uwu poggy woggy boy.csproj.CoreCompileInputs.cache
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\obj\Debug\uwu poggy woggy boy.csproj.CopyComplete
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\obj\Debug\uwu poggy woggy boy.exe
+C:\Users\floof\source\repos\uwu poggy woggy boy\uwu poggy woggy boy\obj\Debug\uwu poggy woggy boy.pdb
