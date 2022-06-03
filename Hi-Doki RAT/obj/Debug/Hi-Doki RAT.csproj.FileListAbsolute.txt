@@ -1,0 +1,55 @@
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\Hi-DokiRAT.exe.config
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\Hi-DokiRAT.exe
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\Hi-DokiRAT.pdb
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\Discord.Net.Commands.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\Discord.Net.Core.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\Discord.Net.Interactions.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\Discord.Net.Rest.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\Discord.Net.Webhook.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\Discord.Net.WebSocket.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\Newtonsoft.Json.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\System.Buffers.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\System.Collections.Immutable.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\System.Drawing.Common.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\System.Interactive.Async.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\System.Linq.Async.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\System.Memory.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\System.Reactive.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\System.ValueTuple.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\Woof.Core.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\Woof.System.dll
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\Discord.Net.Commands.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\Discord.Net.Core.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\Discord.Net.Interactions.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\Discord.Net.Rest.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\Discord.Net.Webhook.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\Discord.Net.WebSocket.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\Newtonsoft.Json.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\System.Buffers.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\System.Collections.Immutable.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\System.Drawing.Common.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\System.Interactive.Async.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\System.Linq.Async.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\System.Memory.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\System.Reactive.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\System.ValueTuple.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\Woof.Core.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\bin\Debug\Woof.System.xml
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\obj\Debug\Hi-Doki RAT.csproj.AssemblyReference.cache
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\obj\Debug\Hi-Doki RAT.csproj.SuggestedBindingRedirects.cache
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\obj\Debug\uwu_poggy_woggy_boy.winforms_are_shit.resources
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\obj\Debug\Hi-Doki RAT.csproj.GenerateResource.cache
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\obj\Debug\Hi-Doki RAT.csproj.CoreCompileInputs.cache
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\obj\Debug\Hi-Doki RAT.csproj.CopyComplete
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\obj\Debug\Hi-DokiRAT.exe
+C:\Users\floof\source\repos\uwu poggy woggy boy\Hi-Doki RAT\obj\Debug\Hi-DokiRAT.pdb
