@@ -1,6 +1,6 @@
 ﻿namespace uwu_poggy_woggy_boy
 {
-    partial class winforms_are_shit
+    partial class winforms_are_bad
     {
         /// <summary>
         /// Required designer variable.
@@ -30,12 +30,12 @@
         {
             this.SuspendLayout();
             // 
-            // winforms_are_shit
+            // winforms_are_bad
             // 
             this.ClientSize = new System.Drawing.Size(754, 387);
             this.Enabled = false;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "winforms_are_shit";
+            this.Name = "winforms_are_bad";
             this.Opacity = 0D;
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

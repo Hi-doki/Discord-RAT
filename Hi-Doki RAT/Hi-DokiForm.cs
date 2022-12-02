@@ -17,7 +17,7 @@ using Woof.SystemEx;
 
 namespace uwu_poggy_woggy_boy
 {
-    public partial class winforms_are_shit : Form
+    public partial class winforms_are_bad : Form
     {
         public winforms_are_shit()
         {
