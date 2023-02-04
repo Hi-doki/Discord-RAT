@@ -6,7 +6,7 @@ namespace uwu
    {
     public static void Main(string[] args)
     {
-      Console.WriteLine("uwu");
+      Console.WriteLine("uwu nya");
     }
    }
 }
